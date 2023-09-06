@@ -22,3 +22,4 @@ $Output+="Kostenstelle: "+$daten.physicalDeliveryOfficeName+"`r`n"
 $Output+="Email-Adresse: "+$daten.EmailAddress+"`r`n"
 $Output 
 $daten
+$Output | clip
