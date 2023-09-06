@@ -1,3 +1,3 @@
-# Windows-11-Scripting
+# Windows-Scripting
 
 in work...
