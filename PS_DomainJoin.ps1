@@ -21,7 +21,7 @@ if ($domainStatus) {
     # Show warning message
     [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
 
-    [System.Windows.Forms.MessageBox]::Show("The computer will be enrolled in the domain.", "Warnung", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)
+    [System.Windows.Forms.MessageBox]::Show("The computer will be enrolled in the domain, followed by a reboot.", "Warnung", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)
     Join-Domain
     
 }
