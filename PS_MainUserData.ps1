@@ -1,17 +1,6 @@
 # Script to gather user data from Windows Active Directory. On clients, you will need the Remote Server Administration Tools (RSAT).
 $daten=(get-aduser -identity $args[0] -Properties * | Select Surname, GivenName, DisplayName, employeeType, SamAccountName, EmailAddress, UserPrincipalName, mailNickname, DistinguishedName, physicalDeliveryOfficeName, PasswordLastSet)
 
-# LastLogonDate
-# Description
-# PasswordLastSet
-# PasswordExpired
-
-#write-host "Nachname: " $daten.Surname
-#write-host "Vorname: " $daten.GivenName
-#write-host "Anzeigename: " $daten.DisplayName
-#write-host "Anmeldename: " $daten.SamAccountName
-#write-host "UPN: " $daten.UserPrincipalName
-#write-host "Mail-Nickname: " $daten.mailNickname
 
 $Output="Nachname: "+$daten.Surname+"`r`n"
 $Output+="Vorname: "+$daten.GivenName+"`r`n"
