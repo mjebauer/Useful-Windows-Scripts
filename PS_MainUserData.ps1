@@ -21,7 +21,14 @@
 # SOFTWARE.
 
 
+# German:
+# PowerShell-Skript zur Abfrage von Benutzerdaten aus der Windows Active Directory.
+# Dieses Skript ist nützlich für Administratoren und Support-Mitarbeiter, um schnell auf Benutzerinformationen zuzugreifen und sie in die Zwischenablage zu kopieren.
+# Auf Clients setzt es die Verwendung der Remote Server Administration Tools (RSAT) voraus.
+
 # Script to gather user data from Windows Active Directory. On clients, you will need the Remote Server Administration Tools (RSAT).
+
+
 $daten=(get-aduser -identity $args[0] -Properties * | Select Surname, GivenName, DisplayName, employeeType, SamAccountName, EmailAddress, UserPrincipalName, mailNickname, DistinguishedName, physicalDeliveryOfficeName, PasswordLastSet)
 
 $Output="Nachname: "+$daten.Surname+"`r`n"
