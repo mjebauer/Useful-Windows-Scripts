@@ -32,7 +32,10 @@ write-host
 $benutzer = Get-WmiObject -Class Win32_UserAccount
 
 # lokale Benutzerkontoinformationen vom Client anzeigen
+write-host
 write-host "-== Lokale Benutzer ==-"
+write-host
+
 foreach ($user in $benutzer) {
     Write-Host "Benutzername: $($user.Name)"
     Write-Host "SID: $($user.SID)"
