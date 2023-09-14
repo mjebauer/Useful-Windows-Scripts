@@ -26,10 +26,36 @@ write-host "Eingeloggter Benutzer:"whoami /user
 # Benutzerkontoinformationen auf dem lokalen Client abrufen
 $benutzer = Get-WmiObject -Class Win32_UserAccount
 
-# Benutzerkontoinformationen vom Client anzeigen
+# lokale Benutzerkontoinformationen vom Client anzeigen
+write-host "-== Lokale Benutzer ==-"
 foreach ($user in $benutzer) {
     Write-Host "Benutzername: $($user.Name)"
     Write-Host "SID: $($user.SID)"
     Write-Host "Vollständiger Name: $($user.FullName)"
     Write-Host "----------------------"
 }
+
+write-host "-== Domänen-Benutzer ==-"
+# Laden des System.DirectoryServices.AccountManagement-Namespaces
+Add-Type -AssemblyName System.DirectoryServices.AccountManagement
+
+# Verbindungsdaten zur Active Directory-Domäne
+$domainName = "testadomini.tld"
+$domainContext = [System.DirectoryServices.AccountManagement.ContextType]::Domain
+$domain = New-Object System.DirectoryServices.AccountManagement.PrincipalContext $domainContext, $domainName
+
+# Benutzerkonten abrufen
+$userPrincipal = New-Object System.DirectoryServices.AccountManagement.UserPrincipal($domain)
+
+# Benutzerkonten durchsuchen und Informationen anzeigen
+$users = [System.DirectoryServices.AccountManagement.PrincipalSearcher]::new($userPrincipal)
+
+foreach ($user in $users.FindAll()) {
+    Write-Host "Benutzername: $($user.SamAccountName)"
+    Write-Host "Anzeigename: $($user.DisplayName)"
+    Write-Host "SID: $($user.Sid.Value)"
+    Write-Host "Gruppenmitgliedschaften: $($user.GetGroups() | ForEach-Object { $_.Name })"
+    Write-Host "Letzte Anmeldung: $($user.LastLogon)"
+    Write-Host "----------------------"
+}
+
