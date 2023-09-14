@@ -20,9 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# gathering user data
-write-host "Eingeloggter Benutzer:"
-whoami /user
+# Benutzerdaten abfragen
+write-host "Eingeloggter Benutzer:"whoami /user
 
 # Benutzerkontoinformationen auf dem lokalen Client abrufen
 $benutzer = Get-WmiObject -Class Win32_UserAccount
