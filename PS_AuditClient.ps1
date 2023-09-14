@@ -23,6 +23,7 @@
 clear
 
 # Benutzerdaten abfragen
+write-host
 write-host "-== Eingeloggter Benutzer: ==-"
 whoami /user
 write-host
@@ -39,6 +40,7 @@ foreach ($user in $benutzer) {
     Write-Host "----------------------"
 }
 
+write-host
 write-host "-== Domänen-Benutzer ==-"
 write-host
 # Laden des System.DirectoryServices.AccountManagement-Namespaces
