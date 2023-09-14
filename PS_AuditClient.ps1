@@ -21,4 +21,16 @@
 # SOFTWARE.
 
 # gathering user data
+write-host "Eingeloggter Benutzer:"
 whoami /user
+
+# Benutzerkontoinformationen auf dem lokalen Client abrufen
+$benutzer = Get-WmiObject -Class Win32_UserAccount
+
+# Benutzerkontoinformationen vom Client anzeigen
+foreach ($user in $benutzer) {
+    Write-Host "Benutzername: $($user.Name)"
+    Write-Host "SID: $($user.SID)"
+    Write-Host "Vollständiger Name: $($user.FullName)"
+    Write-Host "----------------------"
+}
