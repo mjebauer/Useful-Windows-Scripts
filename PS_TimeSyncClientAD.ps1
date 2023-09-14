@@ -1,7 +1,6 @@
 # This script is designed to prevent time differences between the Active Directory Server and the client.
 # This can help prevent issues with user authentication against the Active Directory.
 
-
 # Step 1: Check the current status of the Windows Time Service.
 w32tm /query /status
 
