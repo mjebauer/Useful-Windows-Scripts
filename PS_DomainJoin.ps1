@@ -21,11 +21,11 @@
 # SOFTWARE.
 
 
-#  Short script to join a domain with a client
+# This script is used to join a client computer to a domain.
 
 $domainStatus = (Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain
-#  Short script to join a domain with a client
 
+# Function to join the computer to the specified domain.
 function Join-Domain {
     $domain = "testadomini.tld" # Enter  domain here
     $puser = "TESTADOMINI\Administrator"  # Enter the domain and privileged user here
@@ -33,6 +33,7 @@ function Join-Domain {
 
 }
 
+# Check if the computer is already joined to a domain.
 if ($domainStatus) {
     # Show warning message
     [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
