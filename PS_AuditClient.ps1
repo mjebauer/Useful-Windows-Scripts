@@ -20,9 +20,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+clear
+
 # Benutzerdaten abfragen
 write-host "-== Eingeloggter Benutzer: ==-"
 whoami /user
+write-host
 
 # Benutzerkontoinformationen auf dem lokalen Client abrufen
 $benutzer = Get-WmiObject -Class Win32_UserAccount
@@ -37,6 +40,7 @@ foreach ($user in $benutzer) {
 }
 
 write-host "-== Domänen-Benutzer ==-"
+write-host
 # Laden des System.DirectoryServices.AccountManagement-Namespaces
 Add-Type -AssemblyName System.DirectoryServices.AccountManagement
 
