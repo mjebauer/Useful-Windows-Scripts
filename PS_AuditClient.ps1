@@ -21,7 +21,8 @@
 # SOFTWARE.
 
 # Benutzerdaten abfragen
-write-host "Eingeloggter Benutzer:"whoami /user
+write-host "-== Eingeloggter Benutzer: ==-"
+whoami /user
 
 # Benutzerkontoinformationen auf dem lokalen Client abrufen
 $benutzer = Get-WmiObject -Class Win32_UserAccount
