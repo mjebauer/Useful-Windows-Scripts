@@ -20,6 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+# The purpose of this script is to determine if enough space on the harddrive is left in regard of updates and installation of software.
+
 
 clear
 $MininmalHDDSizeGB=52
