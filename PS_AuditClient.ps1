@@ -22,9 +22,17 @@
 
 clear
 
+write "-==== Generic AD Information ====-"
+
+"Userdomain: " + $env:USERDOMAIN # Get domain name
+"User DNS Domain: " + $env:USERDNSDOMAIN # Get domain name
+"Logon-Server: " + $env:logonserver # Get name of the domain controller
+
+write "-================================-"
+
 # Benutzerdaten abfragen
 write-host
-write-host "-== Eingeloggter Benutzer: ==-"
+write-host "-==== Eingeloggter Benutzer: ====-"
 whoami /user
 write-host
 
@@ -69,3 +77,4 @@ foreach ($user in $users.FindAll()) {
     Write-Host "----------------------"
 }
 
+write "-================================-"
